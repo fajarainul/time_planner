@@ -30,6 +30,8 @@ class TimePlannerTask extends StatelessWidget {
   /// parameter to set width of task, to set it: (config.cellWidth!.toDouble() * (daysDuration ?? 1)) -config.horizontalTaskPadding!
   final double? widthTask;
 
+  final bool isSelected;
+
   /// Widget that show on time planner as the tasks
   const TimePlannerTask({
     Key? key,
@@ -40,7 +42,8 @@ class TimePlannerTask extends StatelessWidget {
     this.onTap,
     this.child,
     this.leftSpace,
-    this.widthTask
+    this.widthTask,
+    this.isSelected = false
   }) : super(key: key);
 
   @override
@@ -56,7 +59,6 @@ class TimePlannerTask extends StatelessWidget {
           padding:
               EdgeInsets.only(left: config.horizontalTaskPadding!.toDouble()),
           child: Material(
-            elevation: 3,
             borderRadius: config.borderRadius,
             child: Stack(
               children: [
@@ -68,8 +70,7 @@ class TimePlannerTask extends StatelessWidget {
                     width: (config.cellWidth!.toDouble() * (daysDuration ?? 1)),
                     // (daysDuration! >= 1 ? daysDuration! : 1)),
                     decoration: BoxDecoration(
-                        borderRadius: config.borderRadius,
-                        color: color ?? Theme.of(context).primaryColor),
+                        color: isSelected ? const Color(0xff16B364).withOpacity(0.2) : color ?? Theme.of(context).primaryColor),
                     child: Center(
                       child: child,
                     ),

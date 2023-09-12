@@ -150,20 +150,27 @@ class _TimePlannerState extends State<TimePlanner> {
           mainAxisAlignment: MainAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            SingleChildScrollView(
-              controller: dayHorizontalController,
-              scrollDirection: Axis.horizontal,
-              physics: const NeverScrollableScrollPhysics(),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.end,
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  const SizedBox(
-                    width: 60,
-                  ),
-                  for (int i = 0; i < config.totalDays; i++) widget.headers[i],
-                ],
+            Container(
+              decoration: const BoxDecoration(
+                  color: Color(0xff015289),
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(8), topRight: Radius.circular(8))
+              ),
+              child: SingleChildScrollView(
+                controller: dayHorizontalController,
+                scrollDirection: Axis.horizontal,
+                physics: const NeverScrollableScrollPhysics(),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    const SizedBox(
+                      width: 60,
+                    ),
+                    for (int i = 0; i < config.totalDays; i++)
+                      widget.headers[i],
+                  ],
+                ),
               ),
             ),
             Container(
@@ -265,11 +272,8 @@ class _TimePlannerState extends State<TimePlanner> {
                                     mainAxisSize: MainAxisSize.min,
                                     children: <Widget>[
                                       Container(
-                                        color: i.isOdd
-                                            ? style.interstitialOddColor
-                                            : style.interstitialEvenColor,
-                                        height:
-                                            (config.cellHeight! - 1).toDouble(),
+                                        color: Colors.white,
+                                        height: (config.cellHeight! - 1).toDouble(),
                                       ),
                                       // The horizontal lines tat divides the rows
                                       //TODO: Make a configurable color for this (maybe a size too)

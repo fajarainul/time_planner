@@ -38,16 +38,17 @@ class TimePlannerTitle extends StatelessWidget {
           children: <Widget>[
             Text(
               title,
-              style: titleStyle ?? const TextStyle(fontWeight: FontWeight.w600),
+              style: titleStyle ?? const TextStyle(fontWeight: FontWeight.w600, color: Colors.white, overflow: TextOverflow.ellipsis),
             ),
-            const SizedBox(
-              height: 3,
+            SizedBox(
+              height:  date == null ? 0 : 3,
             ),
-            Text(
-              date ?? '',
-              style: dateStyle ??
-                  const TextStyle(color: Colors.grey, fontSize: 12),
-            ),
+            if(date!=null)
+              Text(
+                date ?? '',
+                style: dateStyle ??
+                    const TextStyle(color: Colors.grey, fontSize: 12),
+              ),
           ],
         ),
       ),
