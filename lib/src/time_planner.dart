@@ -215,7 +215,7 @@ class _TimePlannerState extends State<TimePlanner> {
                           Container(
                             height:
                                 (config.totalHours * config.cellHeight!) + 80,
-                            width: 1,
+                            width: 2,
                             color: style.dividerColor ??
                                 Theme.of(context).primaryColor,
                           ),
@@ -337,7 +337,7 @@ class _TimePlannerState extends State<TimePlanner> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 SizedBox(
-                  height: (config.totalHours * config.cellHeight!) + 80,
+                  height: (config.totalHours * config.cellHeight!) + 120,
                   width: (config.totalDays * config.cellWidth!).toDouble(),
                   child: Stack(
                     children: <Widget>[
